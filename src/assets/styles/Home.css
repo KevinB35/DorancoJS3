@@ -1,0 +1,35 @@
+.box {
+  cursor: pointer;
+  border: 1px solid #2c3e50;
+  width: 400px;
+  margin: 0.5rem;
+  background-color: white;
+  border-radius: 5%;
+  transition: 200ms all ease-in-out;
+
+  &:hover {
+    border: 1px dotted #3498db;
+  }
+}
+
+.box:hover .hideOnHover {
+  display: none;
+  opacity: 0;
+}
+
+.box:hover .showOnHover {
+  display: block;
+  opacity: 1;
+}
+
+.hideOnHover {
+  opacity: 1;
+  display: block;
+  transition: 200ms all ease-in-out;
+}
+
+.showOnHover {
+  opacity: 0;
+  display: none;
+  transition: 200ms all ease-in-out;
+}
