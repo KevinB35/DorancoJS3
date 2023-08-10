@@ -1,8 +1,6 @@
-import React from "react";
 import { Typography, Box } from "@mui/material";
 
-const Article = (props) => {
-  const { article } = props;
+const Article = ({ article }) => {
   return (
     <Box className='box' sx={{ opacity: article.online ? 1 : 0.1 }}>
       <img height='300' src={article.picture[0].pic1} alt={article.name} />

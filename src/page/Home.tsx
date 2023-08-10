@@ -6,11 +6,14 @@ import "../assets/styles/Home.css";
 
 const Home = () => {
   return (
-    <Grid container textAlign={"center"} justifyContent={"center"}>
-      {data.map((article, index) => (
-        <Article article={article} key={index} />
-      ))}
-    </Grid>
+    <>
+      <title>Accueil</title>
+      <Grid container textAlign={"center"} justifyContent={"center"}>
+        {data.map((article, index) => (
+          <Article article={article} key={index} />
+        ))}
+      </Grid>
+    </>
   );
 };
 
