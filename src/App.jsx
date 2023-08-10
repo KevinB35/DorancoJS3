@@ -7,6 +7,7 @@ import Home from "./page/Home";
 import Men from "./page/Men";
 
 import "./App.css";
+import Women from "./page/Women";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path='/' element={<Header />}>
         <Route path='/' element={<Home />} />
         <Route path='men' element={<Men />} />
+        <Route path='women' element={<Women />} />
       </Route>
     </Routes>
   );

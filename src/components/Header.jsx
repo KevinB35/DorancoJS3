@@ -28,8 +28,11 @@ const Header = () => {
           <Link style={{ ...liStyle, borderRight: "1px solid black" }} to='/'>
             Accueil
           </Link>
-          <Link style={liStyle} to='men'>
+          <Link style={{ ...liStyle, borderRight: "1px solid black" }} to='men'>
             Homme
+          </Link>
+          <Link style={liStyle} to='women'>
+            Femme
           </Link>
         </nav>
       </div>
