@@ -1,6 +1,6 @@
 .box {
   cursor: pointer;
-  border: 1px solid #2c3e50;
+  border: 3px solid white;
   width: 400px;
   margin: 0.5rem;
   background-color: white;
@@ -8,7 +8,7 @@
   transition: 200ms all ease-in-out;
 
   &:hover {
-    border: 1px dotted #3498db;
+    border: 3px solid #3498db;
   }
 }
 
