@@ -1,7 +1,7 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import data from "../assets/data.json";
 import { useEffect, useState } from "react";
-import { Grid, Box, Typography, Alert } from "@mui/material";
+import { Grid, Box, Typography, Alert, Rating } from "@mui/material";
 
 const Article = () => {
   const { id } = useParams();
@@ -51,6 +51,10 @@ const Article = () => {
                 alignItems: "center",
               }}
             >
+              <Rating name='rating' value={article.avis.stars} readOnly />
+              <Typography variant='subtitle1'>
+                {article.avis.nb} avis
+              </Typography>
               <Typography variant='h3'>{article.name}</Typography>
               <Typography variant='h4'>{article.price}€</Typography>
               <Typography sx={{ margin: "20px 0" }}>
