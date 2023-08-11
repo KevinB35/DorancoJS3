@@ -1,22 +1,20 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import data from "../assets/data.json";
-import { useEffect, useState } from "react";
-import { Grid, Box, Typography, Alert, Rating } from "@mui/material";
+import { Grid, Box, Typography, Alert, Rating, Button } from "@mui/material";
+
+import { useDispatch, useSelector } from "react-redux";
+import { deleteItem } from "../store";
 
 const Article = () => {
   const { id } = useParams();
+
+  const article = useSelector((state) =>
+    state.articles.articles.filter((a) => a.id.toString() === id)
+  )[0];
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [article, setArticle] = useState();
-
-  // Sert a retourner une page 404 quand l'id de l'article ne correspond a aucune donnée
-  useEffect(() => {
-    const dataFiltered = data.filter((article) => article.id.toString() === id);
-
-    if (dataFiltered.length === 0) return navigate("/404");
-
-    setArticle(dataFiltered[0]);
-  }, [id, navigate]);
+  if (article === undefined) return navigate("/404");
 
   return (
     <>
@@ -72,6 +70,9 @@ const Article = () => {
                   </Grid>
                 ))}
               </Grid>
+              <Button onClick={() => dispatch(deleteItem(article.id))}>
+                Supprimer
+              </Button>
             </Box>
           </Grid>
         </>
