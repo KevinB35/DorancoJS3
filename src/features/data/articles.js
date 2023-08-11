@@ -3,20 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 import dataJSON from "../../assets/data.json";
 
 const initialState = {
-  value: dataJSON,
+  articles: dataJSON,
 };
 
-export const articles = createSlice({
+export const Articles = createSlice({
   name: "articles",
   initialState,
   reducers: {
-    decrement: (state, id) => {
-      state.value.filter((article) => article.id !== id);
+    DELETE: (state, action) => {
+      state.articles = state.articles.filter(
+        (article) => article.id !== action.payload
+      );
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { decrement } = articles.actions;
+export const { DELETE } = Articles.actions;
 
-export default articles.reducer;
+export default Articles.reducer;

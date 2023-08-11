@@ -2,7 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Grid, Box, Typography, Alert, Rating, Button } from "@mui/material";
 
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItem } from "../store";
+import { DELETE } from "../features/data/articles";
 
 const Article = () => {
   const { id } = useParams();
@@ -70,7 +70,7 @@ const Article = () => {
                   </Grid>
                 ))}
               </Grid>
-              <Button onClick={() => dispatch(deleteItem(article.id))}>
+              <Button onClick={() => dispatch(DELETE(article.id))}>
                 Supprimer
               </Button>
             </Box>
