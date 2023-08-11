@@ -2,7 +2,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { Grid, Box, Typography, Alert, Rating, Button } from "@mui/material";
 
 import { useDispatch, useSelector } from "react-redux";
-import { DELETE } from "../features/data/articles";
+import { DELETE } from "../redux/articles";
 
 const Article = () => {
   const { id } = useParams();
@@ -49,10 +49,19 @@ const Article = () => {
                 alignItems: "center",
               }}
             >
-              <Rating name='rating' value={article.avis.stars} readOnly />
-              <Typography variant='subtitle1'>
-                {article.avis.nb} avis
-              </Typography>
+              {article.avis ? (
+                <>
+                  <Rating name='rating' value={article.avis.stars} readOnly />
+                  <Typography variant='subtitle1'>
+                    {article.avis.nb} avis
+                  </Typography>
+                </>
+              ) : (
+                <>
+                  <Rating name='rating' value={0} readOnly />
+                  <Typography variant='subtitle1'>{"Pas d'avis"}</Typography>
+                </>
+              )}
               <Typography variant='h3'>{article.name}</Typography>
               <Typography variant='h4'>{article.price}€</Typography>
               <Typography sx={{ margin: "20px 0" }}>

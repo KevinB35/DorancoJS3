@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Container } from "@mui/material";
 
@@ -12,6 +12,8 @@ const Header = () => {
     textDecoration: "none",
   };
 
+  const location = useLocation();
+
   return (
     <>
       <div
@@ -24,13 +26,35 @@ const Header = () => {
         }}
       >
         <nav style={{ listStyle: "none" }}>
-          <Link style={{ ...liStyle, borderRight: "1px solid black" }} to='/'>
+          <Link
+            style={{
+              ...liStyle,
+              borderRight: "1px solid black",
+              textDecoration: location.pathname === "/" ? "underline" : "none",
+            }}
+            to='/'
+          >
             Accueil
           </Link>
-          <Link style={{ ...liStyle, borderRight: "1px solid black" }} to='men'>
+          <Link
+            style={{
+              ...liStyle,
+              borderRight: "1px solid black",
+              textDecoration:
+                location.pathname === "/men" ? "underline" : "none",
+            }}
+            to='men'
+          >
             Homme
           </Link>
-          <Link style={liStyle} to='women'>
+          <Link
+            style={{
+              ...liStyle,
+              textDecoration:
+                location.pathname === "/women" ? "underline" : "none",
+            }}
+            to='women'
+          >
             Femme
           </Link>
         </nav>

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import Articles from "./features/data/articles";
+import Articles from "./redux/articles";
 
 export default configureStore({
   reducer: { articles: Articles },

@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import dataJSON from "../../assets/data.json";
+import dataJSON from "../assets/data.json";
 
 const initialState = {
   articles: dataJSON,
